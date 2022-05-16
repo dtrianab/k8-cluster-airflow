@@ -1,0 +1,11 @@
+newspaper3k
+requests
+pandas
+matplotlib
+#psycopg2
+#t4
+flask
+nltk
+urllib3
+bs4
+plotly

@@ -1,7 +1,3 @@
-export NAMESPACE=airflow-cluster
-export RELEASE_NAME=airflow
-export IMAGE=airflow-local-build
-export TAG=0.0.1
-docker build --pull --$IMAGE:$TAG .
+docker build --pull --tag airflow-local-build:0.0.1 .
 kind load docker-image $IMAGE:$TAG
-helm upgrade airflow apache-airflow/airflow --namespace $NAMESPACE --set images.airflow.repository=$IMAGE --set images.airflow.tag=$TAG --timeout 10m30s
+helm upgrade airflow apache-airflow/airflow --namespace $NAMESPACE --set images.airflow.repository=airflow-local-build--set images.airflow.tag=0.0.1 --timeout 10m30s

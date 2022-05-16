@@ -47,7 +47,9 @@ Error: UPGRADE FAILED: post-upgrade hooks failed: timed out waiting for the cond
 Option 2 - Kubernetes yaml defintions	
  - https://github.com/danielbeach/airflow-kubernetes/tree/master
 
+## Deploy 
 
+bash first_deploy.sh
 
 ## References
 https://www.notion.so/Airflow-Helm-Chart-Quick-start-for-Beginners-3e8ee61c8e234a0fb775a07f38a0a8d4

@@ -1,27 +1,27 @@
-How to run Airflow in Kubernetes
+# How to run Airflow in Kubernetes
 
 Option 1 - Helm Chart
 
 https://airflow.apache.org/docs/helm-chart/stable/quick-start.html#install-kind-and-create-a-cluster
 
-# Create Cluster
+## Create Cluster
 kind create cluster --image kindest/node:v1.21.1
 
-# Add helm chart
+## Add helm chart
 helm repo add apache-airflow https://airflow.apache.org
 helm repo update
 
-# install airflow
+## install airflow
 Create namespace and install airflow chart
 kubectl create namespace airflow-cluster
 helm install airflow apache-airflow/airflow --namespace airflow-cluster
 
 
-# Get cluster info and port forward
+## Get cluster info and port forward
 kubectl cluster-info --context kind-kind
 kubectl port-forward svc/airflow-webserver 8080:8080 -n airflow --context kind-airflow-cluster
 
-# Adding DAGs to your image
+## Adding DAGs to your image
 Custom image is created from Dockerfile, dags and dependecies are included into image for loading it with kind
 
 docker build --pull --tag airflow-local-build:0.0.1 .
@@ -30,7 +30,7 @@ helm upgrade airflow apache-airflow/airflow --namespace airflow-cluster --set im
 
 kind delete cluster --image kindest/node:v1.21.1
 
-# Possible issues 
+## Possible issues 
 
 helm time out > add --timeout 10m30s to install/updgrade
 
@@ -42,7 +42,7 @@ Option 2 - Kubernetes yaml defintions
 https://github.com/danielbeach/airflow-kubernetes/tree/master
 
 
-# References
+## References
 https://www.notion.so/Airflow-Helm-Chart-Quick-start-for-Beginners-3e8ee61c8e234a0fb775a07f38a0a8d4
 https://www.youtube.com/watch?v=giQReCd7jp8
 https://www.youtube.com/watch?v=X48VuDVv0do

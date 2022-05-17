@@ -1,6 +1,9 @@
 FROM apache/airflow
-COPY ./DAGS_GC ./opt/airflow/dags
+
+# Files directory (dags)
+COPY . .
+
+#Dependencies
+RUN pip3 install -r requirements.txt
 RUN pip3 install --upgrade pip
 RUN pip3 install newspaper3k
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt

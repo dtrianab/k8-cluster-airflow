@@ -59,6 +59,12 @@ Option 2 - Kubernetes yaml defintions
 ## Deploy 
 bash first_deploy.sh
 
+- Windows 
+kubectl port-forward svc/%RELEASE_NAME%-webserver 8080:8080 --namespace %NAMESPACE%
+
+- Linux
+kubectl port-forward svc/$RELEASE_NAME-webserver 8080:8080 --namespace $NAMESPACE  
+
 ## Quick checks
 - See pods
 kubectl get pod -n airflow-cluster

@@ -1,5 +1,5 @@
 FROM apache/airflow
-COPY ./DAGS_GC ./dags
+COPY ./DAGS_GC ./opt/airflow/dags
 RUN pip3 install --upgrade pip
 RUN pip3 install newspaper3k
 COPY requirements.txt .

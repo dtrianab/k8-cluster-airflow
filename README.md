@@ -1,5 +1,11 @@
 # How to run Airflow in Kubernetes
 
+Prerequisites:
+ - Docker
+ - kubectl
+ - helm
+ - kinD
+
 Option 1 - Helm Chart
 
 https://airflow.apache.org/docs/helm-chart/stable/quick-start.html#install-kind-and-create-a-cluster
@@ -48,7 +54,6 @@ Option 2 - Kubernetes yaml defintions
  - https://github.com/danielbeach/airflow-kubernetes/tree/master
 
 ## Deploy 
-
 bash first_deploy.sh
 
 ## References

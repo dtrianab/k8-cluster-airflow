@@ -30,7 +30,6 @@ kubectl port-forward svc/airflow-webserver 8080:8080 -n airflow --context kind-a
 ## Adding DAGs to your image
 Custom image is created from Dockerfile, dags and dependecies are included into image for loading it with kind
 
-docker build --pull --tag airflow-local-build:0.0.1 .
 kind load docker-image airflow-local-build:0.0.1
 helm upgrade airflow apache-airflow/airflow --namespace airflow-cluster --set images.airflow.repository=airflow-local-build --set images.airflow.tag=0.0.1 --timeout 10m30s
 
@@ -40,6 +39,10 @@ helm show values apache-airflow/airflow > values.yaml
 
 ## Clean up cluster
 kind delete cluster --image kindest/node:v1.21.1
+
+## Git Submodules
+git submodule add URL
+git submodule update --remote
 
 ## Possible issues 
 
@@ -55,6 +58,14 @@ Option 2 - Kubernetes yaml defintions
 
 ## Deploy 
 bash first_deploy.sh
+
+## Quick checks
+- See pods
+kubectl get pod -n airflow-cluster
+
+- Get into pod cli
+kubectl exec -it --namespace airflow-cluster airflow-webserver-58978b4fb4-w4bm2 bash
+
 
 ## References
 https://www.notion.so/Airflow-Helm-Chart-Quick-start-for-Beginners-3e8ee61c8e234a0fb775a07f38a0a8d4

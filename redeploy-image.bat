@@ -1,5 +1,8 @@
 set NAMESPACE=airflow-cluster
 set RELEASE_NAME=airflow
+echo 'updatinng dags submodule'
+git submodule init 
+git submodule update
 echo 'Building Custom Docker image...'
 docker build --pull --tag airflow-local-build:0.0.1 .
 kind load docker-image airflow-local-build:0.0.1

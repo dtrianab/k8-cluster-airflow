@@ -44,6 +44,8 @@ kind delete cluster --image kindest/node:v1.21.1
 git submodule add URL
 git submodule update --remote
 
+in submodule folder: git pull origin main
+
 ## Possible issues 
 
 helm time out > 

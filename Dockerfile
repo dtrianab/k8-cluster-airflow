@@ -1,4 +1,6 @@
-FROM apache/airflow
+#FROM apache/airflow
+FROM apache/airflow:2.3.0-python3.8
+
 
 # Files directory (dags) and depencies list
 COPY . .
